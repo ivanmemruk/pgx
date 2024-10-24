@@ -215,7 +215,7 @@ func (ct *copyFrom) run(ctx context.Context) (int64, error) {
 }
 
 func (ct *copyFrom) buildCopyBuf(buf []byte, sd *pgconn.StatementDescription) (bool, []byte, error) {
-	const sendBufSize = 65536 - 5 // The packet has a 5-byte header
+	const sendBufSize = 65536*10 - 5 // The packet has a 5-byte header
 	lastBufLen := 0
 	largestRowLen := 0
 

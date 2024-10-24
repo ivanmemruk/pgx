@@ -1313,7 +1313,7 @@ func (pgConn *PgConn) CopyFrom(ctx context.Context, r io.Reader, sql string) (Co
 
 	go func() {
 		defer wg.Done()
-		buf := iobufpool.Get(65536)
+		buf := iobufpool.Get(65536 * 10)
 		defer iobufpool.Put(buf)
 		(*buf)[0] = 'd'
 
