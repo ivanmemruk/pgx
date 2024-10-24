@@ -16,7 +16,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ivanmemruk/pgx/v5/internal/iobufpool"
 	"github.com/ivanmemruk/pgx/v5/internal/pgio"
 	"github.com/ivanmemruk/pgx/v5/pgconn/ctxwatch"
 	"github.com/ivanmemruk/pgx/v5/pgconn/internal/bgreader"
@@ -1313,8 +1312,10 @@ func (pgConn *PgConn) CopyFrom(ctx context.Context, r io.Reader, sql string) (Co
 
 	go func() {
 		defer wg.Done()
-		buf := iobufpool.Get(65536 * 10)
-		defer iobufpool.Put(buf)
+		bytes := make([]byte, 16*1024*1024)
+		buf := &bytes
+		//buf := iobufpool.Get(65536 * 10)
+		//defer iobufpool.Put(buf)
 		(*buf)[0] = 'd'
 
 		for {
