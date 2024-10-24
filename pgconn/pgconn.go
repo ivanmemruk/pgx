@@ -16,11 +16,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/jackc/pgx/v5/internal/iobufpool"
-	"github.com/jackc/pgx/v5/internal/pgio"
-	"github.com/jackc/pgx/v5/pgconn/ctxwatch"
-	"github.com/jackc/pgx/v5/pgconn/internal/bgreader"
-	"github.com/jackc/pgx/v5/pgproto3"
+	"github.com/ivanmemruk/pgx/v5/internal/iobufpool"
+	"github.com/ivanmemruk/pgx/v5/internal/pgio"
+	"github.com/ivanmemruk/pgx/v5/pgconn/ctxwatch"
+	"github.com/ivanmemruk/pgx/v5/pgconn/internal/bgreader"
+	"github.com/ivanmemruk/pgx/v5/pgproto3"
 )
 
 const (
@@ -658,7 +658,7 @@ func (pgConn *PgConn) Close(ctx context.Context) error {
 	// This mimics the behavior of libpq PQfinish. It calls closePGconn which calls sendTerminateConn which purposefully
 	// ignores errors.
 	//
-	// See https://github.com/jackc/pgx/issues/637
+	// See https://github.com/ivanmemruk/pgx/issues/637
 	pgConn.frontend.Send(&pgproto3.Terminate{})
 	pgConn.flushWithPotentialWriteReadDeadlock()
 

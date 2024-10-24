@@ -20,13 +20,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/internal/pgio"
-	"github.com/jackc/pgx/v5/internal/pgmock"
-	"github.com/jackc/pgx/v5/pgconn"
-	"github.com/jackc/pgx/v5/pgconn/ctxwatch"
-	"github.com/jackc/pgx/v5/pgproto3"
-	"github.com/jackc/pgx/v5/pgtype"
+	"github.com/ivanmemruk/pgx/v5"
+	"github.com/ivanmemruk/pgx/v5/internal/pgio"
+	"github.com/ivanmemruk/pgx/v5/internal/pgmock"
+	"github.com/ivanmemruk/pgx/v5/pgconn"
+	"github.com/ivanmemruk/pgx/v5/pgconn/ctxwatch"
+	"github.com/ivanmemruk/pgx/v5/pgproto3"
+	"github.com/ivanmemruk/pgx/v5/pgtype"
 )
 
 const pgbouncerConnStringEnvVar = "PGX_TEST_PGBOUNCER_CONN_STRING"
@@ -1161,7 +1161,7 @@ func TestConnExecParamsEmptySQL(t *testing.T) {
 	ensureConnValid(t, pgConn)
 }
 
-// https://github.com/jackc/pgx/issues/859
+// https://github.com/ivanmemruk/pgx/issues/859
 func TestResultReaderValuesHaveSameCapacityAsLength(t *testing.T) {
 	t.Parallel()
 
@@ -1190,7 +1190,7 @@ func TestResultReaderValuesHaveSameCapacityAsLength(t *testing.T) {
 	ensureConnValid(t, pgConn)
 }
 
-// https://github.com/jackc/pgx/issues/1987
+// https://github.com/ivanmemruk/pgx/issues/1987
 func TestResultReaderReadNil(t *testing.T) {
 	t.Parallel()
 
@@ -1487,7 +1487,7 @@ func TestConnExecBatchPrecanceled(t *testing.T) {
 
 // Without concurrent reading and writing large batches can deadlock.
 //
-// See https://github.com/jackc/pgx/issues/374.
+// See https://github.com/ivanmemruk/pgx/issues/374.
 func TestConnExecBatchHuge(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping test in short mode.")
@@ -2372,7 +2372,7 @@ func TestConnCancelRequest(t *testing.T) {
 	ensureConnValid(t, pgConn)
 }
 
-// https://github.com/jackc/pgx/issues/659
+// https://github.com/ivanmemruk/pgx/issues/659
 func TestConnContextCanceledCancelsRunningQueryOnServer(t *testing.T) {
 	t.Parallel()
 
@@ -2507,7 +2507,7 @@ func TestConnCloseWhileCancellableQueryInProgress(t *testing.T) {
 	}
 }
 
-// https://github.com/jackc/pgx/issues/800
+// https://github.com/ivanmemruk/pgx/issues/800
 func TestFatalErrorReceivedAfterCommandComplete(t *testing.T) {
 	t.Parallel()
 
@@ -3440,7 +3440,7 @@ func TestSNISupport(t *testing.T) {
 	}
 }
 
-// https://github.com/jackc/pgx/issues/1920
+// https://github.com/ivanmemruk/pgx/issues/1920
 func TestFatalErrorReceivedInPipelineMode(t *testing.T) {
 	t.Parallel()
 

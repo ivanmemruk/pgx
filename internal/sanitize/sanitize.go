@@ -21,7 +21,7 @@ type Query struct {
 // utf.DecodeRune returns the utf8.RuneError for errors. But that is actually rune U+FFFD -- the unicode replacement
 // character. utf8.RuneError is not an error if it is also width 3.
 //
-// https://github.com/jackc/pgx/issues/1380
+// https://github.com/ivanmemruk/pgx/issues/1380
 const replacementcharacterwidth = 3
 
 func (q *Query) Sanitize(args ...any) (string, error) {
@@ -65,7 +65,7 @@ func (q *Query) Sanitize(args ...any) (string, error) {
 			argUse[argIdx] = true
 
 			// Prevent SQL injection via Line Comment Creation
-			// https://github.com/jackc/pgx/security/advisories/GHSA-m7wr-2xf7-cm9p
+			// https://github.com/ivanmemruk/pgx/security/advisories/GHSA-m7wr-2xf7-cm9p
 			str = " " + str + " "
 		default:
 			return "", fmt.Errorf("invalid Part type: %T", part)

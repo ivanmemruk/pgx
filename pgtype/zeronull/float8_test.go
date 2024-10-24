@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/jackc/pgx/v5/pgtype/zeronull"
-	"github.com/jackc/pgx/v5/pgxtest"
+	"github.com/ivanmemruk/pgx/v5/pgtype/zeronull"
+	"github.com/ivanmemruk/pgx/v5/pgxtest"
 )
 
 func isExpectedEq(a any) func(any) bool {

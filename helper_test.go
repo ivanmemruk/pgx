@@ -7,9 +7,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgconn"
-	"github.com/jackc/pgx/v5/pgxtest"
+	"github.com/ivanmemruk/pgx/v5"
+	"github.com/ivanmemruk/pgx/v5/pgconn"
+	"github.com/ivanmemruk/pgx/v5/pgxtest"
 	"github.com/stretchr/testify/require"
 )
 

@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/jackc/pgx/v5"
+	"github.com/ivanmemruk/pgx/v5"
 )
 
 type Player struct {
