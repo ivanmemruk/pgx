@@ -8,7 +8,7 @@ import "sync"
 
 const minPoolExpOf2 = 8
 
-var pools [18]*sync.Pool
+var pools [54]*sync.Pool
 
 func init() {
 	for i := range pools {
